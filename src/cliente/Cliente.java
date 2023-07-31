@@ -1,3 +1,5 @@
+package cliente;
+import endereco.Endereco;
 public class Cliente {
     private String nome ;
     private String cpf ;
