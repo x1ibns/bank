@@ -22,9 +22,11 @@ public class Cliente {
     public String getCpf(){
         return this.cpf ;
     }
-
-    public void setEndereco(Endereco endereco){
-        this.endereco = endereco ;
+    public void setEndereco(String rua , String bairro, String cidade , String estado ){
+        this.endereco.setRua(rua) ;
+        this.endereco.setBairro(bairro);
+        this.endereco.setCidade(cidade);
+        this.endereco.setEstado(estado);
         return ;
     }
 
@@ -32,4 +34,5 @@ public class Cliente {
         return this.endereco ;
     }
 
+    
 }

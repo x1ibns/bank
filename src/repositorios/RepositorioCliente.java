@@ -1,30 +1,31 @@
 package repositorios;
 import java.util.ArrayList;
 import cliente.Cliente;
-import interfaces.IRepositorioCliente;
 
-
-public class RepositorioCliente implements IRepositorioCliente{
+public class RepositorioCliente {
     static ArrayList <Cliente> clientes = new ArrayList() ;
-
-    @Override
-    public void cadastrarCliente() {
+    
+   
+    public void cadastrarCliente(Cliente c1) {
         // TODO Auto-generated method stub
+        if(c1 == null){
+            return ;
+        }
+        return ;
 
     }
 
-    @Override
     public void buscarCliente() {
         // TODO Auto-generated method stub
         
     }
 
-    @Override
+    
     public void atualizarCliente() {
         // TODO Auto-generated method stub
     }
 
-    @Override
+    
     public void removerCliente() {
         // TODO Auto-generated method stub
     }
