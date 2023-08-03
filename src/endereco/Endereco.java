@@ -5,7 +5,7 @@ public class Endereco {
     private String cidade ;
     private String estado ;
     
-    Endereco(String rua ,String bairro , String cidade , String estado){
+    public Endereco(String rua ,String bairro , String cidade , String estado){
         setRua(rua);
         setBairro(bairro);
         setCidade(cidade);
