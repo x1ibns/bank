@@ -67,11 +67,34 @@ public class App {
 
         c1.setEndereco(rua,bairro,cidade,estado);
 
-        repositorioClientes.cadastrarCliente(c1);
-        System.out.println();
+        if (repositorioClientes.cadastrarCliente(c1) == true ){
+           System.out.println("Cliente cadastrado ! ");
+
+        }else{
+            System.out.println("Cliente não cadastrado !! ");
+        }
 
     }
-    public static void buscar(Cliente c1){}
+    public static void buscar(Cliente c1){
+        String nome ,cpf ;
+
+        System.out.println("Digite o nome do cliente : ");
+        nome = scan.next();
+        c1.setNome(nome);   
+
+        System.out.println("Digite o cpf do cliente : ");
+        cpf = scan.next();
+        c1.setCpf(cpf);
+        
+        if(repositorioClientes.buscarCliente(c1) == true){
+            System.out.println("Cliente encontrado ! " );
+
+        }else{
+            System.out.println("Cliente não encontrado !! ");
+        }
+        
+    
+    }
     public static void atualizar(Cliente c1){}
     public static void remover(Cliente c1){}
 }

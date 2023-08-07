@@ -5,11 +5,11 @@ import interfaces.IRepositorioCliente;
 
 public class RepositorioCliente  implements IRepositorioCliente{
     
-    private ArrayList <Cliente> clientes ;
+    private ArrayList <Cliente> listaClientes ;
     private static RepositorioCliente instancia ;
 
     private RepositorioCliente(){
-         clientes = new ArrayList<Cliente>(10) ;
+         listaClientes = new ArrayList<Cliente>(10) ;
     }
 
     public static RepositorioCliente getInstance(){
@@ -20,31 +20,45 @@ public class RepositorioCliente  implements IRepositorioCliente{
     }
 
     
-    public void cadastrarCliente(Cliente c1) {
+    public boolean cadastrarCliente(Cliente c1) {
         
         if (c1 == null ){
-            System.out.println("Cliente não cadastrado ! ");            
+            System.out.println("Cliente não cadastrado ! ");
+            return false ;            
         } 
 
-        if(c1 != null){
-            for(int i = 0 ; i < clientes.size(); i++){
-                if (clientes.get(i).getNome().equals(c1.getNome()) &&
-                 (clientes.get(i).getCpf().equals(c1.getCpf()) &&
-                  (clientes.get(i).getEndereco().equals(c1.getEndereco()))) ){
-                    System.out.println(clientes.get(i).getNome());
-                    throw new RuntimeException("Cliente já cadastrado ");
+        else{
+            for(int i = 0 ; i < listaClientes.size(); i++){
+                if (listaClientes.get(i).getNome().equals(c1.getNome()) &&
+                 (listaClientes.get(i).getCpf().equals(c1.getCpf()) &&
+                  (listaClientes.get(i).getEndereco().equals(c1.getEndereco()))) ){
+                    System.out.println(listaClientes.get(i).getNome());
+                    System.out.println("Cliente já cadastrado ");
                 }
-                else{
-                clientes.add(c1);
-                System.out.println("Cliente cadastrado com sucesso !! ");
+            }
+            for(int i = 0 ; i< listaClientes.size(); i++){
+                if (listaClientes.get(i) == null){
+                    listaClientes.add(c1);
+                    System.out.println("Cliente cadastrado com sucesso !! ");
                 }
-            }            
-        }               
+            }
+            return true ; 
+        }
+                       
     }
 
-    public void buscarCliente(Cliente c1) {
+    public boolean buscarCliente(Cliente c1) {
         // TODO Auto-generated method stub  ||  
-        
+        if (c1 != null){
+            for( int i  = 0 ; i< listaClientes.size();i++){
+                if ((listaClientes.get(i).getNome().equals(c1.getNome()))) {
+                    System.out.println("Cliente encontrado : "+listaClientes.get(i).getNome());
+                }
+                return true ;
+            }
+           
+        } 
+        return false;
     }
 
     @Override
