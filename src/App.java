@@ -5,10 +5,9 @@ import repositorios.RepositorioCliente;
 public class App {
     
     static Scanner scan = new Scanner(System.in);
-    static RepositorioCliente repositorioClientes = RepositorioCliente.getInstance();
+    static RepositorioCliente repositorioClientes = new RepositorioCliente(); //0.getInstance();
  
-    
-    public static void main(String[] args)  {
+        public static void main(String[] args)  {
         int op ;
         do{
             //System.out.println("Hello, World!");
@@ -67,7 +66,7 @@ public class App {
 
         c1.setEndereco(rua,bairro,cidade,estado);
 
-        if (repositorioClientes.cadastrarCliente(c1) == true ){
+        if (RepositorioCliente.cadastrarCliente(c1) == true ){
            System.out.println("Cliente cadastrado ! ");
 
         }else{
@@ -78,9 +77,9 @@ public class App {
     public static void buscar(Cliente c1){
         String nome ,cpf ;
 
-        System.out.println("Digite o nome do cliente : ");
+        /*System.out.println("Digite o nome do cliente : ");
         nome = scan.next();
-        c1.setNome(nome);   
+        c1.setNome(nome);  */ 
 
         System.out.println("Digite o cpf do cliente : ");
         cpf = scan.next();
