@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import cliente.Cliente;
 import repositorios.RepositorioCliente;
@@ -5,13 +6,14 @@ import repositorios.RepositorioCliente;
 public class App {
     
     static Scanner scan = new Scanner(System.in);
-    static RepositorioCliente repositorioClientes = new RepositorioCliente(); //0.getInstance();
+    static ArrayList repositorio ; //0.getInstance();
  
-        public static void main(String[] args)  {
+    public static void main(String[] args)  {
+        repositorio = new ArrayList <RepositorioCliente>();
         int op ;
         do{
-            //System.out.println("Hello, World!");
-            System.out.println("Welcome to Silvas n/Escolhauma opcao para continuar /n1 cadastrar ;/n2 buscar :/n3 atualizar :/n4 remover :");
+            
+            System.out.println("\nWelcome to Silvas Bank \n\nEscolha uma opcao para continuar \n\n1 cadastrar : \n2 buscar : \n3 atualizar : \n4 remover : ");
             op = scan.nextInt();
             Cliente c1 = new Cliente(); 
             switch(op ){
@@ -66,33 +68,18 @@ public class App {
 
         c1.setEndereco(rua,bairro,cidade,estado);
 
-        if (RepositorioCliente.cadastrarCliente(c1) != true ){
-           System.out.println("Cliente cadastrado ! ");
-
-        }else{
-            System.out.println("Cliente não cadastrado !! ");
-        }
+        RepositorioCliente.cadastrarCliente(c1);
+       
 
     }
     public static void buscar(Cliente c1){
-        String nome ,cpf ;
-
-        /*System.out.println("Digite o nome do cliente : ");
-        nome = scan.next();
-        c1.setNome(nome);  */ 
+        String cpf ;
 
         System.out.println("Digite o cpf do cliente : ");
         cpf = scan.next();
         c1.setCpf(cpf);
         
-        if(repositorioClientes.buscarCliente(c1) == true){
-            System.out.println("Cliente encontrado ! " );
-
-        }else{
-            System.out.println("Cliente não encontrado !! ");
-        }
-        
-    
+        System.out.println(repositorio.contains(c1));    
     }
     public static void atualizar(Cliente c1){}
     public static void remover(Cliente c1){}
