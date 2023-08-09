@@ -66,7 +66,7 @@ public class App {
 
         c1.setEndereco(rua,bairro,cidade,estado);
 
-        if (RepositorioCliente.cadastrarCliente(c1) == true ){
+        if (RepositorioCliente.cadastrarCliente(c1) != true ){
            System.out.println("Cliente cadastrado ! ");
 
         }else{

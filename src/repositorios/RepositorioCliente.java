@@ -8,7 +8,7 @@ public class RepositorioCliente {
     static void repositorioCliente(){
         listaClientes = new ArrayList<Cliente>(100);
     }
-    public static boolean cadastrarCliente(Cliente c1){
+    public static  boolean cadastrarCliente(Cliente c1){
         if (c1 != null){
             try {
                 for (int i = 0 ; i < listaClientes.size() ; i++){
@@ -24,14 +24,13 @@ public class RepositorioCliente {
                     }
                 }
             } catch (Exception e) {
-                // TODO: handle exception
                 System.err.println(e);
             }          
             return true;
         }
         return false ;
     }
-    public boolean buscarCliente(Cliente c1) {
+    public static boolean buscarCliente(Cliente c1) {
         if(c1 != null){
             try {
                 for(int i = 0 ; i < listaClientes.size() ; i++){
@@ -48,5 +47,11 @@ public class RepositorioCliente {
             return true;
         }        
         return false;
+    }
+  
+    public static void atualizarCliente(Cliente c1) {        
+    }
+
+    public static void removerCliente(Cliente c1) {
     }
 }

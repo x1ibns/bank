@@ -1,4 +1,4 @@
-2package repositorios.repositorio;
+package repositorios.repositorio;
 import java.util.ArrayList;
 import cliente.Cliente;
 import interfaces.IRepositorioCliente;
