@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 import cliente.Cliente;
 import repositorios.RepositorioCliente;
@@ -6,14 +5,14 @@ import repositorios.RepositorioCliente;
 public class App {
     
     static Scanner scan = new Scanner(System.in);
-    static ArrayList repositorio ; //0.getInstance();
+    static RepositorioCliente repositorio = new RepositorioCliente();
  
     public static void main(String[] args)  {
-        repositorio = new ArrayList <RepositorioCliente>();
-        int op ;
-        do{
+
+        int op = 1;
+        while (op != 0){
             
-            System.out.println("\nWelcome to Silvas Bank \n\nEscolha uma opcao para continuar \n\n1 cadastrar : \n2 buscar : \n3 atualizar : \n4 remover : ");
+            System.out.println("\nWelcome to Silvas Bank \n\nEscolha uma opcao para continuar \n\n1 cadastrar : \n2 buscar : \n3 atualizar : \n4 remover : \n0 Sair : ");
             op = scan.nextInt();
             Cliente c1 = new Cliente(); 
             switch(op ){
@@ -40,7 +39,7 @@ public class App {
                     System.err.println("Opcao inválida ");
                 }
             }        
-        }while(op != 0);
+        }
 
     }
     public static void cadastrar(Cliente c1){
@@ -68,7 +67,8 @@ public class App {
 
         c1.setEndereco(rua,bairro,cidade,estado);
 
-        RepositorioCliente.cadastrarCliente(c1);
+        RepositorioCliente.cadastrarCliente(c1); 
+        repositorio.cadastrarCliente(c1);
        
 
     }
@@ -78,8 +78,8 @@ public class App {
         System.out.println("Digite o cpf do cliente : ");
         cpf = scan.next();
         c1.setCpf(cpf);
+        RepositorioCliente.buscarCliente(c1);
         
-        System.out.println(repositorio.contains(c1));    
     }
     public static void atualizar(Cliente c1){}
     public static void remover(Cliente c1){}
